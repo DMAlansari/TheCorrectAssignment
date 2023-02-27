@@ -1,0 +1,121 @@
+﻿body {
+    background-color:aliceblue
+}
+
+.container-fluid {
+    background-color: aliceblue
+}
+
+.GridBox {
+    position: relative;
+    left: 50px;
+    height: 100px;
+}
+
+#GridView1 {
+    background-color: #CCCCCC;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+#txtSearch{
+    width: 250px;
+    height: 35px;
+}
+
+.btn btn-primary {
+    width: 250px;
+    height: 35px;
+    background-color: #37474F
+}
+
+.btn {
+    width: 250px;
+    height: 35px;
+    background-color: #37474F
+}
+
+.dropdown-menu {
+    background-color: #37474F;
+}
+.drbtn {
+    color: white;
+    height: 35px;
+    width: 250px;
+    background-color: #37474F;
+    border:none
+}
+.drbtn:hover{
+    color:black;
+    Background-color: aliceblue;
+}
+
+
+
+    #testbtn a:hover {
+        color: black;
+        Background-color: aliceblue;
+    }
+
+
+
+
+
+#sidebar {
+    position: fixed;
+    left: 250px;
+    margin-left: -250px;
+    width: 250px;
+    height: 1000px;
+    background: #37474F;
+}
+
+h5 {
+    width: 250px;
+    background-color: #263238;
+    font-size: 20px;
+    line-height: 52px;
+    text-align: center;
+    color: honeydew 
+
+}
+
+#submitNewClient{
+    width: 150;
+    
+}
+
+.submitdiv {
+    position: relative;
+    left: 250px;
+}
+
+h3 {
+    position: relative;
+    left: 300px;
+}
+
+.submit_update_page{
+    position: fixed
+    
+
+}
+
+.update_fields{
+    position: fixed;
+    left:700px;
+}
+
+.update_pageheader{
+    position:fixed;
+    left:300px;
+}
+
+.update_h3 {
+    position: fixed;
+    left: 500px;
+}
+
+.navbar-collapse collapse{
+    color:white;
+}

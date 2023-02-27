@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TheCorrectAssignment.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head runat="server">
+    <link href="StyleSheet1.css" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#263238">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">  </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Reference">reference</a></li>
+                        <li><a runat="server" href="~/Contact">logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-3">
+            <div id="sidebar">
+    <h5>
+        Kuwait Finance House
+        </h5>
+        
+        <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button CssClass="btn btn-primary" ID="btnSearch" runat="server" Text="seach" OnClick="btnSearch_Click" />
+        <div class="dropdown">
+  <asp:Button type="button" class="btn btn-primary dropdown-toggle" id="buttons" data-bs-toggle="dropdown" runat="server" text="new" OnClick="buttons_Click" />
+  <ul class="dropdown-menu">
+    <li><asp:button class="drbtn dropdown-item" ID="newc_lientBtn"  runat ="server" text="New Client"  OnClick="new_clientBtn_Click" /></li>
+    <li><asp:button class="drbtn dropdown-item" ID="new_AccountBtn" runat="server"  text="New Account" OnClick="new_AccountBtn_Click" /></li>
+    <li><asp:button class="drbtn dropdown-item" ID="new_CardBtn"    runat="server"  text="New Card"    OnClick="new_CardBtn_Click" /></li>
+          </ul>
+</div>
+        
+        <asp:button type="button" class="btn btn-primary" runat="server" ID="update_btn" text="update" OnClick="update_btn_Click"/>
+        <br />
+        <asp:Button type="button" class="btn btn-primary" runat="server" ID="delete_btm" text="delete" OnClick="delete_btm_Click"  />
+        
+            </div>
+		</div>
+		<div class="col-md-9">
+            <br />
+            <br />
+
+            <table>
+            <tr>
+                <td>
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="GridViewMaster" runat="server" AutoGenerateColumns="false" Height="323px" Width="1070px">
+                        <Columns>
+                            <asp:BoundField HeaderText="Civil ID"     DataField="Civil_ID"/>
+                            <asp:BoundField HeaderText="RIM_Number"   DataField="RIM_Number"/>
+                            <asp:BoundField HeaderText="Name"         DataField="Name"/>
+                            <asp:BoundField HeaderText="Gender"       DataField="Gender"/>
+                            <asp:BoundField HeaderText="Address"      DataField="Address"/>
+                            <asp:BoundField HeaderText="Phone Number" DataField="Phone_Number"/>
+                            <asp:BoundField HeaderText="Profile"      DataField="Profile"/>
+                            <asp:BoundField HeaderText="Account Number"      DataField="Account_ID"/>
+                            <asp:BoundField HeaderText="Balance"      DataField="Balance"/>
+                            <asp:BoundField HeaderText="Account Type"     DataField="Account_Type"/>
+                            <asp:BoundField HeaderText="Card ID"           DataField="Card_ID"/>
+                            <asp:BoundField HeaderText="Card Type"         DataField="Card_Type"/>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+
+		</div>
+	</div>
+</div>
+        
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                
+            </footer>
+        </div>
+
+
+
+    </form>
+</body>
+</html>
