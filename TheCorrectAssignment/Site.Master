@@ -137,7 +137,7 @@
                             <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("Name") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
-                            <asp:TextBox ID="Name" runat="server" Text='<%#Eval("Name") %>'></asp:TextBox>  
+                            <asp:TextBox ID="Name" runat="server" Text='<%#Eval("Name") %>'></asp:TextBox>  <!-- Fixes -->
                             </EditItemTemplate>  
                             </asp:TemplateField>
 
