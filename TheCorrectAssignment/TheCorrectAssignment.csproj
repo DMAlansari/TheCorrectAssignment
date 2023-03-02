@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="GetAndUpdateClient.cs" />
     <Compile Include="Reference.aspx.cs">
       <DependentUpon>Reference.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
