@@ -29,6 +29,25 @@
     background-color: #37474F
 }
 
+.GRIDStyle .GRDbtn {
+    width: 80px;
+    background-color: #8b9fa9;
+}
+
+.GRIDStyle .GRD {
+    width: 80px;
+    background-color: #8b9fa9;
+}
+
+.GRIDStyle .GRD:hover {
+    background-color: #37474F;
+}
+
+.GRIDStyle .PRC {
+    width: 80px;
+    background-color: #8b9fa9;
+}
+
 .btn {
     width: 250px;
     height: 35px;
@@ -81,7 +100,7 @@ h5 {
 }
 
 #submitNewClient{
-    width: 150;
+    width: 150px;
     
 }
 
@@ -119,3 +138,4 @@ h3 {
 .navbar-collapse collapse{
     color:white;
 }
+

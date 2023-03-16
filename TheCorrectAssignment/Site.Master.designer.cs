@@ -69,24 +69,6 @@ namespace TheCorrectAssignment
         protected global::System.Web.UI.WebControls.Button new_CardBtn;
 
         /// <summary>
-        /// update_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button update_btn;
-
-        /// <summary>
-        /// delete_btm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button delete_btm;
-
-        /// <summary>
         /// GridViewMaster control.
         /// </summary>
         /// <remarks>

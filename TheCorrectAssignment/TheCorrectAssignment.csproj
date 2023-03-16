@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="products.aspx" />
     <Content Include="Reference.aspx" />
     <Content Include="BLL_GridView.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -180,6 +181,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="GetAndUpdateClient.cs" />
+    <Compile Include="products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reference.aspx.cs">
       <DependentUpon>Reference.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,6 +238,7 @@
       <DependentUpon>New_Card.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\DataProtection.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

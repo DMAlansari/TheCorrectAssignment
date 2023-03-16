@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--  <meta http-equiv="refresh" content=""/> -->
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
@@ -63,7 +64,7 @@
             </div>
         </div>
 <div class="container-fluid">
-
+    
 	<div class="row">
 		<div class="col-md-3">
             <div id="sidebar">
@@ -83,9 +84,7 @@
           </ul>
 </div>
         
-        <asp:button type="button" class="btn btn-primary" runat="server" ID="update_btn" text="update" OnClick="update_btn_Click"/>
-        <br />
-        <asp:Button type="button" class="btn btn-primary" runat="server" ID="delete_btm" text="delete" OnClick="delete_btm_Click"  />
+        
         
             </div>
 		</div>
@@ -101,16 +100,17 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="GridViewMaster" runat="server" AutoGenerateColumns="false" Height="323px" Width="1070px" 
+                    <asp:GridView Class="GRIDStyle" ID="GridViewMaster" runat="server" AutoGenerateColumns="false" Height="323px" Width="1070px" 
                         OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnSelectedIndexChanged="GridViewMaster_SelectedIndexChanged">
                         <Columns>
                            <asp:TemplateField>  
                            <ItemTemplate>  
-                           <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />  
+                           <asp:Button CssClass="GRDbtn btn btn-primary" ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />  
+                           <ControlStyle CssClass="GRD"/>
                            </ItemTemplate>  
                            <EditItemTemplate>  
-                                     <asp:Button ID="btn_Update" runat="server" Text="Update" CommandName="Update"/>  
-                                     <asp:Button ID="btn_Cancel" runat="server" Text="Delete" CommandName="Cancel"/>  
+                                     <asp:Button CssClass="GRD btn btn-primary" ID="btn_Update" runat="server" Text="Update" CommandName="Update"/>  
+                                     <asp:Button CssClass="GRD btn btn-primary" ID="btn_Cancel" runat="server" Text="Delete" CommandName="Cancel"/>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
                             
@@ -118,7 +118,8 @@
                             <ItemTemplate>  
                             <asp:Label ID="lbl_CivilID" runat="server" Text='<%#Eval("Civil_ID") %>'></asp:Label>  
                             </ItemTemplate>  
-                            <EditItemTemplate>  
+                            <EditItemTemplate> 
+                            <asp:Label   ID="lbl_OldCivilID" runat="server"  hidden="hidden" Text='<%#Eval("Civil_ID") %>'></asp:Label>  
                             <asp:TextBox ID="civilID" runat="server" Text='<%#Eval("Civil_ID") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>  
@@ -127,7 +128,8 @@
                             <ItemTemplate>  
                             <asp:Label ID="lbl_RIM_Number" runat="server" Text='<%#Eval("RIM_Number") %>'></asp:Label>  
                             </ItemTemplate>  
-                            <EditItemTemplate>  
+                            <EditItemTemplate> 
+                            <asp:Label ID="lbl_OldRIM_Number" runat="server" hidden="hidden" Text='<%#Eval("RIM_Number") %>'></asp:Label>  
                             <asp:TextBox ID="RIM_Number" runat="server" Text='<%#Eval("RIM_Number") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField> 
@@ -146,7 +148,7 @@
                             <asp:Label ID="lbl_Gender" runat="server" Text='<%#Eval("Gender") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
-                            <asp:TextBox ID="Gender" runat="server" Text='<%#Eval("Gender") %>'></asp:TextBox>  
+                            <asp:DropDownList ID="GenderDropDownList" runat="server" DataValueField="ID" DataTextField="Gender"></asp:DropDownList>
                             </EditItemTemplate>  
                             </asp:TemplateField>
 
@@ -173,8 +175,8 @@
                             <asp:Label ID="lbl_Profile" runat="server" Text='<%#Eval("Profile") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
-                                <asp:DropDownList ID="Profile" runat="server" Text='<%# Eval("Profile") %>' DataSourceID="SqlDataSource1" DataTextField="Profile" DataValueField="Profile"></asp:DropDownList>
-                                <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:myConnection %>' SelectCommand="SELECT [Profile] FROM [Profile_Type]"></asp:SqlDataSource>
+                                <asp:DropDownList ID="ProfileDropDownList" runat="server" DataValueField="Profile_ID" DataTextField="Profile"></asp:DropDownList>
+                                 
                             </EditItemTemplate>  
                             </asp:TemplateField>
 
@@ -191,7 +193,7 @@
                             <ItemTemplate>  
                             <asp:Label ID="lbl_AccountNumber" runat="server" Text='<%#Eval("Account_ID") %>'></asp:Label>  
                             </ItemTemplate>  
-                            <EditItemTemplate>  
+                            <EditItemTemplate>
                             <asp:TextBox ID="AccountNumber" runat="server"  Text='<%#Eval("Account_ID") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
@@ -201,6 +203,7 @@
                             <asp:Label ID="lbl_Balance" runat="server" Text='<%#Eval("Balance") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
+                            <asp:Label ID="lbl_Balance" runat="server" hidden="hidden" Text='<%#Eval("Balance") %>'></asp:Label> 
                             <asp:TextBox ID="Balance" runat="server" Text='<%#Eval("Balance") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
@@ -210,6 +213,7 @@
                             <asp:Label ID="lbl_AccountTypeID" runat="server" Text='<%#Eval("ID") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
+                            <asp:Label ID="lbl_AccountTypeID" runat="server" Text='<%#Eval("ID") %>'></asp:Label>  
                             <asp:TextBox ID="AccountTypeID" runat="server" Text='<%#Eval("ID") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
@@ -220,7 +224,7 @@
                             <asp:Label ID="lbl_AccountType" runat="server" Text='<%#Eval("Account_Type") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
-                            <asp:TextBox ID="AccountType" runat="server" Text='<%#Eval("Account_Type") %>'></asp:TextBox>  
+                             <asp:DropDownList ID="AccountDropDownList" runat="server" DataValueField="ID" DataTextField="Account_Type"></asp:DropDownList> 
                             </EditItemTemplate>  
                             </asp:TemplateField>
 
@@ -229,6 +233,7 @@
                             <asp:Label ID="lbl_CardID" runat="server" Text='<%#Eval("Card_ID") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
+                            <asp:Label ID="lbl_CardID" runat="server" hidden="hidden" Text='<%#Eval("Card_ID") %>'></asp:Label> 
                             <asp:TextBox ID="CardID"   runat="server" Text='<%#Eval("Card_ID") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
@@ -238,22 +243,42 @@
                             <asp:Label ID="lbl_CardTypeID" runat="server" Text='<%#Eval("Card_Type_ID") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
+                            <asp:Label ID="lbl_CardTypeID" runat="server" hidden="hidden" Text='<%#Eval("Card_Type_ID") %>'></asp:Label> 
                             <asp:TextBox ID="CardTypeID"   runat="server" Text='<%#Eval("Card_Type_ID") %>'></asp:TextBox>  
                             </EditItemTemplate>  
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Card Type">  
+                            <asp:TemplateField HeaderText="Card Type"> 
                             <ItemTemplate>  
                             <asp:Label ID="lbl_CardType" runat="server" Text='<%#Eval("Card_Type") %>'></asp:Label>  
                             </ItemTemplate>  
                             <EditItemTemplate>  
-                                <asp:DropDownList ID="CardType" runat="server" Text='<%# Eval("Card_Type") %>' DataSourceID="SqlDataSource2" DataTextField="Card_Type" DataValueField="Card_Type"></asp:DropDownList>
+                            <asp:DropDownList ID="cardTypeDropDownList" DataValueField="ID" DataTextField="Card_Type" runat="server"></asp:DropDownList>
+                            </EditItemTemplate>  
+                            </asp:TemplateField>
 
-                                <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:myConnection %>' SelectCommand="SELECT [Card_Type] FROM [Card_Type]"></asp:SqlDataSource>
+                            <asp:TemplateField HeaderText=""> 
+                            <ItemTemplate>  
+                            <asp:Button  CssClass="PRC btn btn-primary" ID="more1" runat="server" Text="Products" OnClick="goToProducts" />
+                            </ItemTemplate>  
+                            <EditItemTemplate>  
+                            <asp:Button  CssClass="PRC btn btn-primary" ID="more1" runat="server" Text="Products" OnClick="goToProducts" />
                             </EditItemTemplate>  
                             </asp:TemplateField>
                 
                         </Columns>
+
+                           <FooterStyle BackColor="White" ForeColor="#333333" />
+                           <HeaderStyle BackColor="#37474F" Font-Bold="True" ForeColor="White" HorizontalAlign="Center"/>
+                           <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                           <RowStyle BackColor="White" ForeColor="#333333" />
+                           <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                           <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                           <SortedAscendingHeaderStyle BackColor="#487575" />
+                           <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                           <SortedDescendingHeaderStyle BackColor="#275353" />
+                           
+                           
                     </asp:GridView>
                 </td>
             </tr>

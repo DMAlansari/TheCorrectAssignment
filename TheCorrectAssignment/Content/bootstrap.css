@@ -2358,7 +2358,8 @@ pre code {
   }
 }
 table {
-  background-color: transparent;
+  background-color: #FFFFFF;
+    font-size: small;
 }
 table col[class*="col-"] {
   position: static;
